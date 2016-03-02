@@ -1,9 +1,6 @@
-(module info (lib "infotab.ss" "setup")
-  (define name "version-case")
-  (define blurb '("version-case: conditional code based on mzscheme version"))
-  (define categories '(misc))
-  (define primary-file "main.rkt")
-  (define release-notes '("Updated documentation so it should no longer generate Scribble warnings."))
-  (define version "1.9")
-  (define repositories '("4.x"))
-  (define scribblings '(("version-case.scrbl" ()))))
+#lang info
+
+(define name "version-case")
+(define collection "version-case")
+(define version "1.9")
+(define scribblings '(("version-case.scrbl" ())))

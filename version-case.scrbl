@@ -1,14 +1,13 @@
 #lang scribble/manual
-@(require planet/scribble
-          (for-label racket)
-          (for-label (this-package-in main)))
+@(require (for-label racket version-case))
 
 
 @title{version-case: conditionally compile code based on current version number}
-@author+email["Danny Yoo" "dyoo@hashcollision.org"]                
+@author[@author+email["Danny Yoo" "dyoo@hashcollision.org"]
+        @author+email["Sam Tobin-Hochstadt" "samth@racket-lang.org"]]
 
 @centered{@smaller{Source code can be found at:
-@url{https://github.com/dyoo/version-case}.}}
+@url{https://github.com/samth/version-case}.}}
 
 
 
@@ -62,7 +61,7 @@ with both the old and new @racket[unit] libraries.
 Another simple example:
 @codeblock|{
 #lang racket/base
-(require (planet dyoo/version-case)
+(require version-case
          (for-syntax racket/base))
 (printf "~a~n" (version-case [(version<= (version) "4")
                               'huh?]
@@ -71,7 +70,7 @@ Another simple example:
 
 
 @section{Usage}
-@defmodule/this-package[main]
+@defmodule[version-case]
 @defform[(version-case [test code ...]
                        ... 
                        [else code ...])]
