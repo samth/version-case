@@ -50,4 +50,33 @@
       (define (phase1)
         (message-box "phase1"))
       (define (phase2)
+        (message-box "phase2")))])
+
+  (version-case
+   [(version<= (version) "360")
+    (printf "old unit code (no else form)~n")
+    (require (lib "mred.ss" "mred")
+             (lib "tool.ss" "drscheme")
+             (lib "unitsig.ss"))
+
+    (define tool2@
+      (unit/sig drscheme:tool-exports^
+          (import drscheme:tool^)
+        (define (phase1)
+          (message-box "phase1"))
+        (define (phase2)
+          (message-box "phase2"))))])
+
+  (version-case
+   [(version> (version) "360")
+    (printf "new unit code (no else form)~n")
+    (require scheme/gui/base
+             (lib "tool.ss" "drscheme")
+             (lib "unit.ss"))
+    (define-unit tool2@
+      (import drscheme:tool^)
+      (export drscheme:tool-exports^)
+      (define (phase1)
+        (message-box "phase1"))
+      (define (phase2)
         (message-box "phase2")))]))
