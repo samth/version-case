@@ -10,6 +10,8 @@
                                 "360"]
                                [else
                                 "something else"]))
+  (printf "~s~n" (version-case [(version= (version) "360")
+                                "360"]))
 
 
   ;; Ellipses should work in a version case.

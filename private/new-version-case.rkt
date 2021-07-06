@@ -42,7 +42,7 @@
      (syntax/loc stx
        (version-case [test code ...]
                      ...
-                     [else]))]
+                     [else (void)]))]
     [else
      (raise-syntax-error 
       #f 
