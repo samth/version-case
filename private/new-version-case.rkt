@@ -38,6 +38,11 @@
             (begin
               (define-syntax name transformer)
               (name)))]))]
+    [(_ [test code ...] ...)
+     (syntax/loc stx
+       (version-case [test code ...]
+                     ...
+                     [else (void)]))]
     [else
      (raise-syntax-error 
       #f 
